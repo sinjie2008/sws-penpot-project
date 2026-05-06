@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Superworld Product Details Spec Page Wireframe</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #111111;
+      --muted: #555555;
+      --line: #111111;
+      --soft: #f6f6f6;
+      --soft-2: #eeeeee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 28px 0 18px;
+    }
+
+    .product-section-nav-wrap {
+      margin: 32px 0 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      top: 61px;
+      z-index: 8;
+    }
+
+    .product-section-nav-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      padding-right: 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .product-section-nav {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .product-section-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-section-nav a {
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      background: var(--bg);
+      white-space: nowrap;
+    }
+
+    .product-section-nav a:hover,
+    .product-section-nav a.active {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 36px;
+      align-items: stretch;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 80px;
+      min-height: 490px;
+    }
+
+    .hero > .hero-copy,
+    .hero > .product-card {
+      min-width: 0;
+      height: 100%;
+      align-self: stretch;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .hero-copy {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+      align-content: stretch;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-main {
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      max-width: none;
+      align-content: start;
+    }
+
+    .hero-heading-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 26px;
+    }
+
+    .category-chip {
+      width: fit-content;
+      border: 1px solid var(--line);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--bg);
+      margin-top: 30px;
+      white-space: nowrap;
+    }
+
+    .product-status-panel {
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: stretch;
+      width: 100%;
+      max-width: none;
+    }
+
+    .status-heading {
+      border-right: 1px solid var(--line);
+      padding: 16px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      background: var(--soft);
+    }
+
+    .status-heading strong {
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .status-heading span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .compliance-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .compliance-badge {
+      min-height: 94px;
+      border-right: 1px solid var(--line);
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 10px;
+      align-items: center;
+      text-align: left;
+      padding: 14px;
+    }
+
+    .compliance-badge:last-child {
+      border-right: 0;
+    }
+
+    .compliance-symbol {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .compliance-title {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .compliance-sub {
+      font-size: 11px;
+      line-height: 1.2;
+      margin-top: 4px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .hero-title-block {
+      display: grid;
+      gap: 8px;
+    }
+
+    .series-title {
+      display: block;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .product-title {
+      display: block;
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      padding-top: 0;
+      border-top: 0;
+      color: var(--muted);
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .intro-bullets {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+      display: grid;
+      gap: 5px;
+    }
+
+    .intro-bullets strong {
+      color: var(--ink);
+    }
+
+    .product-intro {
+      width: 100%;
+      max-width: none;
+      display: grid;
+      gap: 8px;
+      padding-left: 8px;
+    }
+
+    .product-intro-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+    }
+
+    .product-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .product-critical-points {
+      margin: 4px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      display: grid;
+      gap: 6px;
+    }
+
+    .product-critical-points strong {
+      color: var(--ink);
+    }
+
+    .hero-key-points {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      max-width: 720px;
+    }
+
+    .hero-key-points li {
+      padding: 12px 14px;
+      border-right: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .hero-key-points li:last-child {
+      border-right: 0;
+    }
+
+    .hero-key-points strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .hero-actions,
+    .cta-row,
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 12px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+    }
+
+    .btn.primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    .product-card {
+      border: 1px solid var(--line);
+      padding: 18px;
+      display: grid;
+      grid-template-rows: 1fr auto auto;
+      gap: 14px;
+      background: var(--bg);
+      width: 100%;
+      max-width: none;
+      min-height: 490px;
+      height: 100%;
+      align-self: stretch;
+    }
+
+    .product-card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .product-card-actions .btn {
+      width: 100%;
+      min-height: 38px;
+      padding: 9px 6px;
+      font-size: 11px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .product-media {
+      position: relative;
+      display: grid;
+      gap: 0;
+      min-height: 0;
+    }
+
+    .product-media-toggle {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .media-toggle-btn {
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      min-width: 74px;
+    }
+
+    .media-toggle-btn:last-child {
+      border-right: 0;
+    }
+
+    .media-toggle-btn.active {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .product-media-panel {
+      min-height: 100%;
+      border: 1px solid var(--line);
+      background: repeating-linear-gradient(45deg, var(--soft), var(--soft) 10px, var(--bg) 10px, var(--bg) 20px);
+      display: none;
+      place-items: center;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 56px 20px 20px;
+    }
+
+    .product-media-panel.active {
+      display: grid;
+    }
+
+    .spec-mini {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+    }
+
+    .spec-mini div {
+      padding: 10px 9px;
+      border-right: 1px solid var(--line);
+      border-bottom: 0;
+      min-width: 0;
+    }
+
+    .spec-mini div:last-child {
+      border-right: 0;
+    }
+
+    .spec-mini .label {
+      font-size: 9px;
+      margin-bottom: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .spec-mini .value {
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .label {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .value {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 130px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+    }
+
+    .summary-item {
+      padding: 20px;
+      min-height: 120px;
+      border-right: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .summary-item:last-child {
+      border-right: 0;
+    }
+
+    .summary-item strong {
+      display: block;
+      font-size: 22px;
+      margin-top: 8px;
+    }
+
+
+    .table-tools {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto auto;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .input {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      min-height: 42px;
+      font-size: 14px;
+      background: var(--bg);
+      width: 100%;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 13px 12px;
+      text-align: left;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    th {
+      background: var(--soft);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .part-link {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .select-cell {
+      width: 42px;
+      text-align: center;
+    }
+
+    .center-cell {
+      text-align: center;
+    }
+
+    .select-cell input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .compare-bar {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      background: var(--soft);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .diagram-card,
+    .info-card {
+      border: 1px solid var(--line);
+      padding: 20px;
+      background: var(--bg);
+    }
+
+    .diagram-box {
+      min-height: 280px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-card h3,
+    .diagram-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .check-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .check-list li::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--line);
+      margin-top: 3px;
+      background: var(--bg);
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .download-card {
+      border: 1px solid var(--line);
+      padding: 20px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .download-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .selection-cta {
+      border: 1px solid var(--line);
+      background: var(--ink);
+      color: var(--bg);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .selection-cta h2 {
+      color: var(--bg);
+      max-width: 720px;
+    }
+
+    .selection-cta p {
+      margin: 12px 0 0;
+      color: var(--bg);
+      opacity: 0.85;
+      font-size: 13px;
+      line-height: 1.45;
+      max-width: 820px;
+    }
+
+    .selection-cta-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .selection-cta .btn {
+      border-color: var(--bg);
+      color: var(--bg);
+      background: var(--ink);
+      min-width: 150px;
+    }
+
+    .selection-cta .btn:hover {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .footer-note {
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .section-head,
+      .media-grid,
+      .two-col,
+      .selection-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .selection-cta-actions {
+        justify-content: flex-start;
+      }
+
+      .product-card {
+        max-width: 100%;
+      }
+
+      .hero-heading-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .category-chip {
+        margin-top: 0;
+      }
+
+      .product-status-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .status-heading {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .compliance-row {
+        grid-template-columns: 1fr;
+      }
+
+      .compliance-badge {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .compliance-badge:last-child {
+        border-bottom: 0;
+      }
+
+      .summary-grid,
+      .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-section-nav-wrap {
+        align-items: flex-start;
+      }
+
+    }
+
+    @media (max-width: 620px) {
+      .topbar-inner,
+      .nav,
+      .hero-actions,
+      .compare-bar,
+      .table-tools {
+        display: block;
+      }
+
+      .product-section-nav-wrap {
+        display: grid;
+        gap: 10px;
+      }
+
+      .product-section-nav-title {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      .nav {
+        margin-top: 12px;
+      }
+
+      .nav a,
+      .hero-actions .btn,
+      .table-tools .btn,
+      .table-tools .input,
+      .compare-bar .btn {
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .summary-grid,
+      .download-grid,
+      .hero-key-points {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-key-points li {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-key-points li:last-child {
+        border-bottom: 0;
+      }
+
+      .summary-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary-item:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Superworld Electronics</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#specifications">Specifications</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#enquiry">Enquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="breadcrumb">Home / Our Products / EMC Components / Chip Array Ferrite Bead / A4K Series</div>
+
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <div class="hero-main">
+          <div class="hero-heading-row">
+            <div class="hero-title-block">
+              <h1>
+                <span class="series-title">A4K Series</span>
+                <span class="product-title">Chip Array Ferrite Bead</span>
+              </h1>
+            </div>
+
+            <div class="category-chip">EMC Components</div>
+          </div>
+
+          <div class="product-intro">
+            <div class="product-intro-title">Introduction</div>
+            <p>A4K Series is a compact chip array ferrite bead for multi-line EMI noise suppression in high-density electronic circuits.</p>
+            <ul class="product-critical-points">
+              <li><strong>4-line array design</strong> supports compact filtering in one package.</li>
+              <li><strong>Multiple impedance options</strong> support different noise suppression needs.</li>
+              <li><strong>Low DCR selection</strong> helps reduce unwanted circuit power loss.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="product-status-panel" aria-label="Product compliance status">
+          <div class="status-heading">
+            <strong>Compliance</strong>
+            <span>Product status</span>
+          </div>
+
+          <div class="compliance-row">
+            <div class="compliance-badge">
+              <div class="compliance-symbol">R</div>
+              <div>
+                <div class="compliance-title">RoHS / REACH</div>
+                <div class="compliance-sub">Compliant</div>
+              </div>
+            </div>
+
+            <div class="compliance-badge">
+              <div class="compliance-symbol">H</div>
+              <div>
+                <div class="compliance-title">Halogen</div>
+                <div class="compliance-sub">Free</div>
+              </div>
+            </div>
+
+            <div class="compliance-badge">
+              <div class="compliance-symbol">A</div>
+              <div>
+                <div class="compliance-title">AEC</div>
+                <div class="compliance-sub">Q200 / -125°C</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="product-card" aria-label="Product summary">
+        <div class="product-media">
+          <div class="product-media-toggle" aria-label="Product media view toggle">
+            <button class="media-toggle-btn active" type="button" data-view="image">Image</button>
+            <button class="media-toggle-btn" type="button" data-view="view3d">3D View</button>
+          </div>
+          <div class="product-media-panel active" id="media-image">Product Image</div>
+          <div class="product-media-panel" id="media-3d">3D View</div>
+        </div>
+        <div class="spec-mini">
+          <div><span class="label">Length</span><span class="value">3.20 mm</span></div>
+          <div><span class="label">Width</span><span class="value">1.60 mm</span></div>
+          <div><span class="label">Height</span><span class="value">0.90 mm</span></div>
+          <div><span class="label">SPQ</span><span class="value">3,000 / reel</span></div>
+        </div>
+
+        <div class="product-card-actions">
+          <a class="btn" href="#downloads">Download Datasheet</a>
+        </div>
+      </aside>
+    </section>
+
+    <div class="product-section-nav-wrap">
+      <div class="product-section-nav-title">Product Details</div>
+      <nav class="product-section-nav" aria-label="Product detail section navigation">
+        <a class="active" href="#overview">Introduction</a>
+        <a href="#specifications">Specifications</a>
+        <a href="#environmental">Environmental</a>
+        <a href="#curves">Performance Curves</a>
+        <a href="#physical">Physical Characteristics</a>
+        <a href="#tape-reel">Tape & Reel</a>
+        <a href="#soldering">Soldering / Washing</a>
+      </nav>
+    </div>
+
+    <section id="specifications">
+      <div class="section-head">
+        <h2>Specifications</h2>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-item"><span class="label">Product Type</span><strong>Chip Array Ferrite Bead</strong></div>
+        <div class="summary-item"><span class="label">Impedance Range</span><strong>30–1000 Ω</strong></div>
+        <div class="summary-item"><span class="label">Test Frequency</span><strong>100 MHz</strong></div>
+        <div class="summary-item"><span class="label">Operating Temp.</span><strong>-40°C to +125°C</strong></div>
+      </div>
+
+      <div class="table-tools" style="margin-top: 24px;">
+        <input class="input" type="search" placeholder="Search part number, impedance, DCR, current..." />
+        <button class="btn">Search</button>
+        <button class="btn primary">Inquire Selected</button>
+        <button class="btn">Analyze Losses</button>
+      </div>
+
+      <div class="table-wrap">
+        <table aria-label="A4K Series Electrical Characteristics">
+          <thead>
+            <tr>
+              <th class="select-cell">Inquire / Losses Compare</th>
+              <th>Part Number</th>
+              <th>Impedance Ω ±25%</th>
+              <th>Test Frequency</th>
+              <th>DCR Ω Max</th>
+              <th>Rated Current mA Max</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K300-RE-10</a></td>
+              <td>30</td>
+              <td>100 MHz</td>
+              <td>0.20</td>
+              <td>500</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K600-RD-10</a></td>
+              <td>60</td>
+              <td>100 MHz</td>
+              <td>0.25</td>
+              <td>400</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K121-RD-10</a></td>
+              <td>120</td>
+              <td>100 MHz</td>
+              <td>0.30</td>
+              <td>350</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K301-RC-10</a></td>
+              <td>300</td>
+              <td>100 MHz</td>
+              <td>0.40</td>
+              <td>250</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K601-RB-10</a></td>
+              <td>600</td>
+              <td>100 MHz</td>
+              <td>0.50</td>
+              <td>200</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+            <tr>
+              <td class="select-cell"><input type="checkbox" /></td>
+              <td><a class="part-link" href="#">A4K102-RB-10</a></td>
+              <td>1000</td>
+              <td>100 MHz</td>
+              <td>0.75</td>
+              <td>150</td>
+              <td><button class="btn">PDF</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="compare-bar">
+        <span><strong>Selected parts:</strong> A4K300-RE-10, A4K600-RD-10</span>
+        <button class="btn primary">Send Selected Parts to Enquiry</button>
+      </div>
+    </section>
+
+    <section id="environmental">
+      <div class="section-head">
+        <h2>Environmental</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <h3>Operating Conditions</h3>
+          <ul class="check-list">
+            <li>Operating temperature: -40°C to +125°C</li>
+            <li>Storage temperature: -40°C to +125°C on board</li>
+            <li>Electrical data referenced to 25°C ambient</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Storage Conditions</h3>
+          <ul class="check-list">
+            <li>Store components in original packaging before use</li>
+            <li>Recommended storage: less than 40°C</li>
+            <li>Recommended humidity: less than 60% RH</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="curves">
+      <div class="section-head">
+        <h2>Performance Curves</h2>
+      </div>
+
+      <div class="diagram-card">
+        <h3>Characteristics Curve</h3>
+        <p class="section-note">Impedance characteristics by selected part number</p>
+        <div class="diagram-box">Performance Curve<br />Z / R / X vs Frequency</div>
+      </div>
+    </section>
+
+    <section id="physical">
+      <div class="section-head">
+        <h2>Physical Characteristics</h2>
+      </div>
+
+      <div class="media-grid">
+        <div class="diagram-card">
+          <h3>Configuration & Dimensions</h3>
+          <p class="section-note">Package drawing and dimension table</p>
+          <div class="diagram-box">Dimension Drawing<br />A / B / C / D1 / D2 / P</div>
+        </div>
+        <div class="diagram-card">
+          <h3>Recommended PCB Layout</h3>
+          <p class="section-note">PCB land pattern reference</p>
+          <div class="diagram-box">PCB Layout<br />G / H / I / J / L</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tape-reel">
+      <div class="section-head">
+        <h2>Tape & Reel</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <h3>Packaging Quantity</h3>
+          <ul class="check-list">
+            <li>Chip / Reel: 3,000 pcs</li>
+            <li>Inner Box: 15,000 pcs</li>
+            <li>Middle Box: 75,000 pcs</li>
+            <li>Carton: 150,000 pcs</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Reel & Tape Dimensions</h3>
+          <ul class="check-list">
+            <li>7” × 8 mm reel format</li>
+            <li>Tape dimension reference for B0, A0, K0, P, T, and W</li>
+            <li>Tearing-off force reference by tape size</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="soldering">
+      <div class="section-head">
+        <h2>Soldering / Washing</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card">
+          <h3>Reflow Soldering</h3>
+          <ul class="check-list">
+            <li>Pb-free reflow profile reference</li>
+            <li>Reflow times: 3 times max</li>
+            <li>Profile based on IPC / JEDEC J-STD-020F</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Iron Soldering / Handling</h3>
+          <ul class="check-list">
+            <li>Hand soldering is not preferred</li>
+            <li>Use controlled tip temperature and short soldering time</li>
+            <li>Follow full datasheet for process precautions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="section-head">
+        <h2>Downloads & Support</h2>
+      </div>
+
+      <div class="download-grid">
+        <div class="download-card">
+          <div>
+            <strong>Datasheet PDF</strong>
+            <p>Full A4K Series technical specification.</p>
+          </div>
+          <button class="btn full">Download PDF</button>
+        </div>
+        <div class="download-card">
+          <div>
+            <strong>Product Catalogue</strong>
+            <p>EMC and magnetic component catalogue.</p>
+          </div>
+          <button class="btn full">Download Catalogue</button>
+        </div>
+        <div class="download-card">
+          <div>
+            <strong>Need Help Selecting?</strong>
+            <p>Send your selected part number, quantity, and application requirement.</p>
+          </div>
+          <a class="btn primary full" href="#enquiry">Go to Enquiry Form</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquiry">
+      <div class="selection-cta">
+        <div>
+          <h2>Need help selecting components for your design?</h2>
+          <p>Share your device type, circuit area, target series, and electrical requirements so our team can help review suitable options.</p>
+        </div>
+        <div class="selection-cta-actions">
+          <a class="btn" href="#specifications">Send Enquiry</a>
+          <a class="btn" href="#downloads">Download Brochure</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const mediaToggleButtons = document.querySelectorAll('.media-toggle-btn');
+    const mediaPanels = document.querySelectorAll('.product-media-panel');
+
+    mediaToggleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const view = button.dataset.view;
+
+        mediaToggleButtons.forEach((btn) => btn.classList.remove('active'));
+        mediaPanels.forEach((panel) => panel.classList.remove('active'));
+
+        button.classList.add('active');
+
+        if (view === 'image') {
+          document.getElementById('media-image').classList.add('active');
+        }
+
+        if (view === 'view3d') {
+          document.getElementById('media-3d').classList.add('active');
+        }
+      });
+    });
+
+    const sectionNavLinks = document.querySelectorAll('.product-section-nav a');
+    const sectionTargets = Array.from(sectionNavLinks)
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    let currentActiveSection = '';
+    let navTicking = false;
+
+    function centerActiveNavItem(activeLink) {
+      const nav = activeLink.closest('.product-section-nav');
+      if (!nav) return;
+
+      const targetLeft = activeLink.offsetLeft - (nav.clientWidth / 2) + (activeLink.clientWidth / 2);
+      nav.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
+
+    function setActiveSectionLink(sectionId, shouldCenter = false) {
+      if (!sectionId || currentActiveSection === sectionId) return;
+
+      currentActiveSection = sectionId;
+
+      sectionNavLinks.forEach((link) => {
+        const isActive = link.getAttribute('href') === '#' + sectionId;
+        link.classList.toggle('active', isActive);
+
+        if (isActive && shouldCenter) {
+          centerActiveNavItem(link);
+        }
+      });
+    }
+
+    function updateActiveNavOnScroll() {
+      const navOffset = 150;
+      const currentPosition = window.scrollY + navOffset;
+      let activeSectionId = sectionTargets[0] ? sectionTargets[0].id : '';
+
+      sectionTargets.forEach((section) => {
+        if (currentPosition >= section.offsetTop) {
+          activeSectionId = section.id;
+        }
+      });
+
+      setActiveSectionLink(activeSectionId, true);
+      navTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!navTicking) {
+        window.requestAnimationFrame(updateActiveNavOnScroll);
+        navTicking = true;
+      }
+    });
+
+    window.addEventListener('resize', updateActiveNavOnScroll);
+    updateActiveNavOnScroll();
+
+    sectionNavLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+
+        setActiveSectionLink(target.id, true);
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>

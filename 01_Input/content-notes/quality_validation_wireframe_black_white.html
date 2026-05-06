@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quality Page - Testing Capability Tabs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.5;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 60px 32px;
+    }
+
+    .section {
+      border-top: 1px solid #111111;
+      border-bottom: 1px solid #111111;
+      padding: 56px 0;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 34px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      max-width: 560px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+      max-width: 500px;
+    }
+
+    .main-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #111111;
+      margin-bottom: 24px;
+    }
+
+    .main-tab {
+      background: #ffffff;
+      border: none;
+      border-right: 1px solid #111111;
+      padding: 18px 22px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .main-tab:last-child {
+      border-right: none;
+    }
+
+    .main-tab span {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .main-tab strong {
+      display: block;
+      font-size: 18px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .main-tab.active {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .panel-layout {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      border: 1px solid #111111;
+      height: 640px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .image-slider {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-right: 1px solid #111111;
+      border-bottom: none;
+      background: #ffffff;
+    }
+
+    .image-slides {
+      display: flex;
+      height: 100%;
+      transition: transform 0.4s ease;
+    }
+
+    .image-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .image-slide img {
+      width: 100%;
+      height: 100%;
+      max-width: 96%;
+      max-height: 96%;
+      object-fit: contain;
+      display: block;
+      filter: grayscale(100%);
+      background: #ffffff;
+    }
+
+    .image-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background: #ffffff;
+      position: relative;
+    }
+
+    .image-fallback::before,
+    .image-fallback::after {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 1px;
+      background: #111111;
+      opacity: 0.25;
+      left: -20%;
+      top: 50%;
+    }
+
+    .image-fallback::before {
+      transform: rotate(30deg);
+    }
+
+    .image-fallback::after {
+      transform: rotate(-30deg);
+    }
+
+    .fallback-box {
+      position: relative;
+      z-index: 1;
+      border: 1px solid #111111;
+      background: #ffffff;
+      padding: 18px 22px;
+      max-width: 380px;
+    }
+
+    .fallback-box strong {
+      display: block;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .fallback-box span {
+      display: block;
+      font-size: 13px;
+    }
+
+    .content-side {
+      min-width: 0;
+      height: 100%;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .content-wrap {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding-right: 0;
+    }
+
+    .slide-content {
+      display: none;
+    }
+
+    .slide-content.active {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .small-label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .content-side h3 {
+      font-size: 26px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .content-side p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .content-group {
+      border-top: 1px solid #111111;
+      padding-top: 16px;
+      margin-top: 16px;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .content-group ul {
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 8px;
+      scroll-behavior: smooth;
+    }
+
+    .content-group h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      font-size: 13px;
+      padding: 7px 28px 7px 0;
+      border-bottom: 1px solid #dddddd;
+      position: relative;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .content-side li[data-go-slide] {
+      cursor: pointer;
+    }
+
+    .content-side li[data-go-slide]::after {
+      content: "→";
+      position: absolute;
+      right: 0;
+      top: 7px;
+      font-size: 12px;
+    }
+
+    .content-side li[data-go-slide]:hover,
+    .content-side li[data-go-slide].active-route {
+      background: #f2f2f2;
+    }
+
+    .slider-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .slider-dots {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .slider-dot {
+      width: 100%;
+      height: 34px;
+      min-width: 0;
+      border: 1px solid #111111;
+      background: #ffffff;
+      padding: 0 4px;
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .slider-dot.overview-dot {
+      font-size: 9px;
+      letter-spacing: 0.02em;
+    }
+
+    .slider-dot.active {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .arrows {
+      display: grid;
+      grid-template-columns: 44px minmax(72px, 1fr) 44px;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .arrow {
+      width: 44px;
+      height: 44px;
+      border: 1px solid #111111;
+      background: #ffffff;
+      color: #111111;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .pause-toggle {
+      width: 100%;
+      min-width: 0;
+      padding: 0 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 950px) {
+      .section-header,
+      .main-tabs,
+      .panel-layout {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .main-tab {
+        border-right: none;
+        border-bottom: 1px solid #111111;
+      }
+
+      .main-tab:last-child {
+        border-bottom: none;
+      }
+
+      .panel-layout {
+        height: auto;
+      }
+
+      .image-slider {
+        border-right: none;
+        border-bottom: 1px solid #111111;
+        height: 460px;
+      }
+
+      .content-side {
+        height: auto;
+        overflow: visible;
+      }
+
+      .slide-content.active {
+        height: auto;
+      }
+
+      .content-wrap {
+        overflow: hidden;
+        padding-right: 0;
+      }
+
+      .content-group ul {
+        max-height: 280px;
+      }
+
+      .slider-controls {
+        border-left: none;
+        border-top: 1px solid #111111;
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 40px 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .content-side {
+        padding: 28px 22px;
+      }
+
+      .image-slider {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Testing Capability</div>
+          <h2>In-House Validation Capabilities</h2>
+        </div>
+        <p>Superworld verifies component quality through reliability testing, magnetic analysis, and EMI / EMC validation.</p>
+      </div>
+
+      <div class="main-tabs" role="tablist" aria-label="Validation capability tabs">
+        <button class="main-tab active" data-tab="reliability" type="button">
+          <span>01</span>
+          <strong>Reliability System</strong>
+        </button>
+        <button class="main-tab" data-tab="magnetic" type="button">
+          <span>02</span>
+          <strong>Magnetic Analysis</strong>
+        </button>
+        <button class="main-tab" data-tab="emc" type="button">
+          <span>03</span>
+          <strong>EMI / EMC Center</strong>
+        </button>
+      </div>
+
+      <div class="tab-panel active" data-panel="reliability">
+        <div class="panel-layout">
+          <div class="image-slider">
+            <div class="image-slides">
+              <div class="image-slide">
+                <img src="images/reliability-system-overview.jpg" alt="Comprehensive Reliability Verification System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Reliability System</strong><span>Comprehensive Reliability Verification System</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/application-environment-simulation.jpg" alt="Application Environment Simulation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Application Environment Simulation</strong><span>Impulse / Surge / Heat Conduction / Stress Analysis</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/electrical-functional-analysis.jpg" alt="Electrical and Functional Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Electrical & Functional Analysis</strong><span>Inner Circuit Isolation / S-Parameter / Power Loss</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/composition-analysis.jpg" alt="Composition Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Composition Analysis</strong><span>XRF</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/failure-analysis.jpg" alt="Failure Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Failure Analysis</strong><span>3D / 2D X-ray CT / Thickness / Grinder / Microscope</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/environmental-endurance.jpg" alt="Environmental Endurance" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Environmental Endurance</strong><span>Temperature / Humidity / Thermal Shock / Salt Atmosphere</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/mechanical-analysis.jpg" alt="Mechanical Analysis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Mechanical Analysis</strong><span>Vibration / Terminal Strength / Destructive Endurance / Shock Test</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="content-side">
+            <div class="content-wrap">
+              <div class="slide-content active">
+                <div class="small-label">Reliability System / 01</div>
+                <h3>Comprehensive Reliability Verification System</h3>
+                <p>Ensuring reliable, long-term performance of magnetic components in real-world operation.</p>
+                <div class="content-group">
+                  <h4>System Sections</h4>
+                  <ul>
+                    <li data-go-slide="1">Application Environment Simulation</li>
+                    <li data-go-slide="2">Electrical & Functional Analysis</li>
+                    <li data-go-slide="3">Composition Analysis</li>
+                    <li data-go-slide="4">Failure Analysis</li>
+                    <li data-go-slide="5">Environmental Endurance</li>
+                    <li data-go-slide="6">Mechanical Analysis</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 02</div>
+                <h3>Application Environment Simulation</h3>
+                <p>Simulates application-related stress and damage conditions before product use.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="1">Impulse / Surge simulation Board Flex</li>
+                    <li data-go-slide="1">Surge Current Damage Simulation</li>
+                    <li data-go-slide="1">Heat Conduction Simulation</li>
+                    <li data-go-slide="1">Stress Analysis / Simulation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 03</div>
+                <h3>Electrical & Functional Analysis</h3>
+                <p>Checks electrical behavior and functional performance of the component.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="2">Inner Circuit Isolation Simulation</li>
+                    <li data-go-slide="2">S-Parameter Analysis</li>
+                    <li data-go-slide="2">Power Loss</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 04</div>
+                <h3>Composition Analysis</h3>
+                <p>Supports material and composition verification.</p>
+                <div class="content-group">
+                  <h4>Actual Item</h4>
+                  <ul>
+                    <li data-go-slide="3">XRF</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 05</div>
+                <h3>Failure Analysis</h3>
+                <p>Supports defect investigation and internal structure review.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="4">3D / 2D X-ray (CT)</li>
+                    <li data-go-slide="4">Thickness Analyzer</li>
+                    <li data-go-slide="4">Grinder</li>
+                    <li data-go-slide="4">High Power Stereo Microscope</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 06</div>
+                <h3>Environmental Endurance</h3>
+                <p>Tests endurance under temperature, humidity, thermal shock, moisture, and salt atmosphere conditions.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="5">High Temperature Storage</li>
+                    <li data-go-slide="5">Low Temperature Storage</li>
+                    <li data-go-slide="5">High Temperature & Humidity Storage</li>
+                    <li data-go-slide="5">Thermal Shock (180°C↔-60°C)</li>
+                    <li data-go-slide="5">Temperature Cycling</li>
+                    <li data-go-slide="5">Moisture Resistance</li>
+                    <li data-go-slide="5">Salt Atmosphere</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Reliability System / 07</div>
+                <h3>Mechanical Analysis</h3>
+                <p>Validates mechanical strength and durability under physical stress.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="6">Vibration</li>
+                    <li data-go-slide="6">Terminal Strength</li>
+                    <li data-go-slide="6">Destructive Endurance</li>
+                    <li data-go-slide="6">Shock Test</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-controls">
+              <div class="slider-dots">
+                <button class="slider-dot overview-dot active" data-slide="0" type="button" aria-label="Reliability overview">Overview</button>
+                <button class="slider-dot" data-slide="1" type="button" aria-label="Application environment simulation">02</button>
+                <button class="slider-dot" data-slide="2" type="button" aria-label="Electrical and functional analysis">03</button>
+                <button class="slider-dot" data-slide="3" type="button" aria-label="Composition analysis">04</button>
+                <button class="slider-dot" data-slide="4" type="button" aria-label="Failure analysis">05</button>
+                <button class="slider-dot" data-slide="5" type="button" aria-label="Environmental endurance">06</button>
+                <button class="slider-dot" data-slide="6" type="button" aria-label="Mechanical analysis">07</button>
+              </div>
+              <div class="arrows">
+                <button class="arrow prev" type="button" aria-label="Previous slide">←</button>
+                <button class="arrow pause-toggle" type="button" aria-label="Pause autoplay">Pause</button>
+                <button class="arrow next" type="button" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="magnetic">
+        <div class="panel-layout">
+          <div class="image-slider">
+            <div class="image-slides">
+              <div class="image-slide">
+                <img src="images/advanced-magnetic-testing-overview.jpg" alt="Advanced Magnetic Testing and Verification Capability" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Advanced Magnetic Testing</strong><span>Material Properties / Inductor Spec / Efficiency Verification</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/material-properties-verification.jpg" alt="Material Properties Verification" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Material Properties Verification</strong><span>IWATSU SY-8218 / Agilent 4991A</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/200a-dc-bias.jpg" alt="200A DC Bias Testing" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>High Current Testing</strong><span>200A DC Bias / Saturation Behavior</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/efficiency-verification-system.jpg" alt="Efficiency Verification System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Efficiency Verification System</strong><span>Customer-Provided EVB / Efficiency / Thermal Testing</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="content-side">
+            <div class="content-wrap">
+              <div class="slide-content active">
+                <div class="small-label">Magnetic Analysis / 01</div>
+                <h3>Advanced Magnetic Testing Capability</h3>
+                <p>Supports material properties verification, inductor specification testing, and system-level efficiency validation.</p>
+                <div class="content-group">
+                  <h4>Actual Sections</h4>
+                  <ul>
+                    <li data-go-slide="1">Material Properties Verification</li>
+                    <li data-go-slide="2">Inductor Spec Testing</li>
+                    <li data-go-slide="3">Efficiency Verification Tester</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Magnetic Analysis / 02</div>
+                <h3>Material Properties Verification</h3>
+                <p>Verifies magnetic material characteristics and frequency response behavior.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="1">Magnetic material properties</li>
+                    <li data-go-slide="1">Frequency response analysis</li>
+                    <li data-go-slide="1">IWATSU SY-8218</li>
+                    <li data-go-slide="1">Agilent 4991A</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Magnetic Analysis / 03</div>
+                <h3>High Current Testing</h3>
+                <p>Checks inductor performance under high-current conditions using DC bias testing.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="2">DC bias testing up to 200A</li>
+                    <li data-go-slide="2">Saturation behavior measurement</li>
+                    <li data-go-slide="2">200A DC Bias</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">Magnetic Analysis / 04</div>
+                <h3>System-Level Validation</h3>
+                <p>Supports efficiency verification and thermal testing at system or application level.</p>
+                <div class="content-group">
+                  <h4>Actual Items</h4>
+                  <ul>
+                    <li data-go-slide="3">EVB compatibility</li>
+                    <li data-go-slide="3">Efficiency and thermal testing</li>
+                    <li data-go-slide="3">Efficiency Verification System</li>
+                    <li data-go-slide="3">Compatible with Customer-Provided EVB</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-controls">
+              <div class="slider-dots">
+                <button class="slider-dot overview-dot active" data-slide="0" type="button" aria-label="Magnetic overview">Overview</button>
+                <button class="slider-dot" data-slide="1" type="button" aria-label="Material properties verification">02</button>
+                <button class="slider-dot" data-slide="2" type="button" aria-label="High current testing">03</button>
+                <button class="slider-dot" data-slide="3" type="button" aria-label="System-level validation">04</button>
+              </div>
+              <div class="arrows">
+                <button class="arrow prev" type="button" aria-label="Previous slide">←</button>
+                <button class="arrow pause-toggle" type="button" aria-label="Pause autoplay">Pause</button>
+                <button class="arrow next" type="button" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="emc">
+        <div class="panel-layout">
+          <div class="image-slider">
+            <div class="image-slides">
+              <div class="image-slide">
+                <img src="images/emi-emc-validation-overview.jpg" alt="In-house EMI EMC validation for high-reliability electronics" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>EMI / EMC Center</strong><span>In-House EMI / EMC Validation for High-Reliability Electronics</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/anechoic-chamber-emi-shielding-room.jpg" alt="Anechoic Chamber and EMI Shielding Room" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Anechoic Chamber & EMI Shielding Room</strong><span>1 Anechoic Chamber / 4 EMI Shielding Room</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/emi-emc-test-capability.jpg" alt="EMI EMC Test Capability" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>EMI / EMC Test Capability</strong><span>Conducted / Radiated / Immunity / ESD / Transient Simulation</span></div></div>
+              </div>
+              <div class="image-slide">
+                <img src="images/emi-emc-standards-supported.jpg" alt="EMI EMC standards supported" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="image-fallback"><div class="fallback-box"><strong>Standards Supported</strong><span>ISO / IEC / Automotive EMC Standards</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="content-side">
+            <div class="content-wrap">
+              <div class="slide-content active">
+                <div class="small-label">EMI / EMC Center / 01</div>
+                <h3>In-House EMI / EMC Validation</h3>
+                <p>In-house EMI / EMC validation for high-reliability electronics.</p>
+                <div class="content-group">
+                  <h4>Actual Sections</h4>
+                  <ul>
+                    <li data-go-slide="1">1 Anechoic Chamber</li>
+                    <li data-go-slide="1">4 EMI Shielding Room</li>
+                    <li data-go-slide="2">EMI / EMC Test Capability</li>
+                    <li data-go-slide="3">Standards supported</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">EMI / EMC Center / 02</div>
+                <h3>Anechoic Chamber & EMI Shielding Room</h3>
+                <p>Facility support for EMI / EMC validation and testing work.</p>
+                <div class="content-group">
+                  <h4>Actual Facilities</h4>
+                  <ul>
+                    <li data-go-slide="1">1 Anechoic Chamber</li>
+                    <li data-go-slide="1">4 EMI Shielding Room</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">EMI / EMC Center / 03</div>
+                <h3>EMI / EMC Test Capability</h3>
+                <p>Supports key EMI / EMC test requirements for electronic components and applications.</p>
+                <div class="content-group">
+                  <h4>Actual Test Items</h4>
+                  <ul>
+                    <li data-go-slide="2">Conducted emission testing</li>
+                    <li data-go-slide="2">Radiated emission testing</li>
+                    <li data-go-slide="2">Immunity testing</li>
+                    <li data-go-slide="2">ESD testing</li>
+                    <li data-go-slide="2">Transient simulation testing</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="slide-content">
+                <div class="small-label">EMI / EMC Center / 04</div>
+                <h3>Standards Supported</h3>
+                <p>Supports EMI / EMC validation based on recognized international and automotive standards.</p>
+                <div class="content-group">
+                  <h4>Actual Standard Scope</h4>
+                  <ul>
+                    <li data-go-slide="3">ISO standards</li>
+                    <li data-go-slide="3">IEC standards</li>
+                    <li data-go-slide="3">Automotive EMC standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-controls">
+              <div class="slider-dots">
+                <button class="slider-dot overview-dot active" data-slide="0" type="button" aria-label="EMI EMC overview">Overview</button>
+                <button class="slider-dot" data-slide="1" type="button" aria-label="Anechoic chamber and EMI shielding room">02</button>
+                <button class="slider-dot" data-slide="2" type="button" aria-label="EMI EMC test capability">03</button>
+                <button class="slider-dot" data-slide="3" type="button" aria-label="EMI EMC standards supported">04</button>
+              </div>
+              <div class="arrows">
+                <button class="arrow prev" type="button" aria-label="Previous slide">←</button>
+                <button class="arrow pause-toggle" type="button" aria-label="Pause autoplay">Pause</button>
+                <button class="arrow next" type="button" aria-label="Next slide">→</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const mainTabs = document.querySelectorAll('.main-tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    const section = document.querySelector('.section');
+    const autoPlayDelay = 4500;
+    const tabOrder = ['reliability', 'magnetic', 'emc'];
+
+    const sliderState = {
+      reliability: 0,
+      magnetic: 0,
+      emc: 0
+    };
+
+    let autoPlayTimer = null;
+    let listScrollAnimation = null;
+    let listScrollDelay = null;
+    let isUserPaused = false;
+    let isInteractionPaused = false;
+
+    function getActiveTabName() {
+      const activeTab = document.querySelector('.main-tab.active');
+      return activeTab ? activeTab.dataset.tab : 'reliability';
+    }
+
+    function getSlideTotal(tabName) {
+      const panel = document.querySelector(`[data-panel="${tabName}"]`);
+      if (!panel) return 0;
+      return panel.querySelectorAll('.slider-dot').length;
+    }
+
+    function getNextTabName(tabName) {
+      const currentIndex = tabOrder.indexOf(tabName);
+      const nextIndex = (currentIndex + 1) % tabOrder.length;
+      return tabOrder[nextIndex];
+    }
+
+    function shouldAutoPlay() {
+      return !isUserPaused && !isInteractionPaused && !document.hidden;
+    }
+
+    function updatePauseButtons() {
+      const pauseButtons = document.querySelectorAll('.pause-toggle');
+      pauseButtons.forEach(button => {
+        button.textContent = isUserPaused ? 'Play' : 'Pause';
+        button.setAttribute('aria-label', isUserPaused ? 'Resume autoplay' : 'Pause autoplay');
+      });
+    }
+
+    function stopOverflowScroll() {
+      if (listScrollAnimation) {
+        cancelAnimationFrame(listScrollAnimation);
+        listScrollAnimation = null;
+      }
+
+      if (listScrollDelay) {
+        clearTimeout(listScrollDelay);
+        listScrollDelay = null;
+      }
+    }
+
+    function startOverflowScroll(panel) {
+      stopOverflowScroll();
+
+      const activeContent = panel.querySelector('.slide-content.active');
+      if (!activeContent) return;
+
+      const activeList = activeContent.querySelector('.content-group ul');
+      if (!activeList) return;
+
+      activeList.scrollTop = 0;
+
+      listScrollDelay = setTimeout(() => {
+        const maxScroll = activeList.scrollHeight - activeList.clientHeight;
+        if (maxScroll <= 4) return;
+
+        const duration = Math.min(Math.max(maxScroll * 80, 5000), 10000);
+        const startTime = performance.now();
+
+        function animateScroll(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const easedProgress = progress < 0.5
+            ? 2 * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+          activeList.scrollTop = maxScroll * easedProgress;
+
+          if (progress < 1) {
+            listScrollAnimation = requestAnimationFrame(animateScroll);
+          }
+        }
+
+        listScrollAnimation = requestAnimationFrame(animateScroll);
+      }, 1000);
+    }
+
+    function updateSlider(tabName, index) {
+      const panel = document.querySelector(`[data-panel="${tabName}"]`);
+      if (!panel) return;
+
+      const slidesWrap = panel.querySelector('.image-slides');
+      const dots = panel.querySelectorAll('.slider-dot');
+      const contents = panel.querySelectorAll('.slide-content');
+      const total = dots.length;
+
+      if (!slidesWrap || !total) return;
+
+      const safeIndex = ((index % total) + total) % total;
+      sliderState[tabName] = safeIndex;
+      slidesWrap.style.transform = `translateX(-${safeIndex * 100}%)`;
+
+      dots.forEach(dot => {
+        dot.classList.toggle('active', Number(dot.dataset.slide) === safeIndex);
+      });
+
+      contents.forEach((content, contentIndex) => {
+        content.classList.toggle('active', contentIndex === safeIndex);
+      });
+
+      panel.querySelectorAll('.content-side li[data-go-slide]').forEach(item => {
+        item.classList.toggle('active-route', Number(item.dataset.goSlide) === safeIndex);
+      });
+
+      startOverflowScroll(panel);
+    }
+
+    function setActiveTab(tabName) {
+      mainTabs.forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.tab === tabName);
+      });
+
+      panels.forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.panel === tabName);
+      });
+    }
+
+    function activateMainTab(tabName) {
+      setActiveTab(tabName);
+      sliderState[tabName] = 0;
+      updateSlider(tabName, 0);
+      restartAutoPlay();
+    }
+
+    function advanceAutoPlay() {
+      const activeTabName = getActiveTabName();
+      const total = getSlideTotal(activeTabName);
+      const currentSlide = sliderState[activeTabName];
+
+      if (currentSlide < total - 1) {
+        updateSlider(activeTabName, currentSlide + 1);
+        return;
+      }
+
+      const nextTabName = getNextTabName(activeTabName);
+      setActiveTab(nextTabName);
+      sliderState[nextTabName] = 0;
+      updateSlider(nextTabName, 0);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+
+      if (!shouldAutoPlay()) return;
+
+      autoPlayTimer = setInterval(() => {
+        advanceAutoPlay();
+      }, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    function restartAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+      updatePauseButtons();
+    }
+
+    function toggleUserPause() {
+      isUserPaused = !isUserPaused;
+      restartAutoPlay();
+    }
+
+    mainTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        activateMainTab(tab.dataset.tab);
+      });
+    });
+
+    panels.forEach(panel => {
+      const tabName = panel.dataset.panel;
+      const dots = panel.querySelectorAll('.slider-dot');
+      const prev = panel.querySelector('.prev');
+      const next = panel.querySelector('.next');
+      const pause = panel.querySelector('.pause-toggle');
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          updateSlider(tabName, Number(dot.dataset.slide));
+          restartAutoPlay();
+        });
+      });
+
+      prev.addEventListener('click', () => {
+        updateSlider(tabName, sliderState[tabName] - 1);
+        restartAutoPlay();
+      });
+
+      next.addEventListener('click', () => {
+        updateSlider(tabName, sliderState[tabName] + 1);
+        restartAutoPlay();
+      });
+
+      pause.addEventListener('click', () => {
+        toggleUserPause();
+      });
+
+      panel.querySelectorAll('.content-side li[data-go-slide]').forEach(item => {
+        item.addEventListener('click', () => {
+          updateSlider(tabName, Number(item.dataset.goSlide));
+          restartAutoPlay();
+        });
+      });
+    });
+
+    section.addEventListener('mouseenter', () => {
+      isInteractionPaused = true;
+      stopAutoPlay();
+    });
+
+    section.addEventListener('mouseleave', () => {
+      isInteractionPaused = false;
+      startAutoPlay();
+    });
+
+    section.addEventListener('focusin', () => {
+      isInteractionPaused = true;
+      stopAutoPlay();
+    });
+
+    section.addEventListener('focusout', () => {
+      isInteractionPaused = false;
+      startAutoPlay();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    });
+
+    updatePauseButtons();
+    startOverflowScroll(document.querySelector('.tab-panel.active'));
+    startAutoPlay();
+  </script>
+</body>
+</html>
