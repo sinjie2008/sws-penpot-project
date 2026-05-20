@@ -6,6 +6,39 @@ Do not delete old entries. Add new entries at the top.
 
 ---
 
+## MCP Action 2026-05-20-1547
+Date:
+2026-05-20 15:47:57 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Yes. Target-only scan, grouping, and verification completed without timeout.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Tools / Spec Search
+
+Action:
+Grouped related existing components inside `Lo - Tools / Spec Search` only. No new boards were created, and no other section boards were targeted.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. The target board still contains the same seven section boards. Final verification found 29 target groups including the existing pagination group, with groups for starting category options, product category heading/button/columns, filter heading/action/columns, search result buttons/table/header/dividers/rows, and pagination.
+
+Error:
+None.
+
+Next step:
+Review `Lo - Tools / Spec Search` layers visually in Penpot.
+
+---
+
 ## MCP Action 2026-05-14-1014
 Date:
 2026-05-14 10:14:50 +08:00
@@ -3557,3 +3590,331 @@ Verify `Global Presence / Wireframe / Desktop` and `Lo - News / Global Presence`
 
 Update:
 2026-05-13 16:14:27 +08:00 - User requested the rename again. Re-ran the state-safe Penpot MCP script for `Global Presence / Wireframe / Desktop` to `Lo - News / Global Presence`. The call timed out after 120 seconds before returning board state or confirmation.
+---
+
+## MCP Action 2026-05-20-1410
+Date:
+2026-05-20 14:10:51 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Yes, with intermittent write timeout behavior.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Key Achievements
+
+Action:
+Retried approved component grouping inside the target board only, using smaller section batches and read-only verification checks.
+
+Files read:
+`03_Penpot_Status/status.md`
+
+Result:
+Completed and verified. Groups were created inside `02_Hero_Banner_Board`, `04_Singapore_Enterprise_50_Board`, `05_Distinguished_Awards_Board`, and `06_Customer_Awards_Board`.
+
+Error:
+Some Penpot MCP write and verification calls timed out, but smaller follow-up checks confirmed the groups were created.
+
+Next step:
+Review the target board visually in Penpot and confirm whether standalone headings or media placeholders should remain separate.
+
+---
+
+## MCP Action 2026-05-20-1352
+Date:
+2026-05-20 13:52:37 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Partially available; initial scan succeeded, grouping and verification calls timed out.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Key Achievements
+
+Action:
+Scanned only the target board and listed related component groups. After user approval, attempted to group approved related components inside `Lo - Home / Key Achievements` only.
+
+Files read:
+`00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Pending verification. The grouping call timed out after 30 seconds. Follow-up read-only verification calls also timed out, so completed groups could not be confirmed.
+
+Error:
+Penpot MCP timeout.
+
+Next step:
+Refresh or reconnect Penpot MCP, verify the layer structure inside `Lo - Home / Key Achievements`, then continue only with missing groups in smaller section batches.
+
+---
+
+## MCP Action 2026-05-20-1421
+Date:
+2026-05-20 14:21:56 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Available. Two write calls returned timeout errors, but follow-up read-only verification confirmed the writes completed.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Quality Standards
+
+Action:
+Scanned only the target board, grouped related components inside `Lo - Home / Quality Standards`, renamed unclear existing component groups, and verified the target board structure.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. The target board still contains the same eight section boards, and 37 expected groups were found.
+
+Error:
+Penpot MCP timed out during two write batches, but both batches were verified as completed afterward.
+
+Next step:
+Review `Lo - Home / Quality Standards` visually in Penpot.
+
+---
+
+## MCP Action 2026-05-20-1434
+Date:
+2026-05-20 14:34:25 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Available. One broad write call and two broad verification calls timed out; smaller targeted calls completed and verified successfully.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Our Company
+
+Action:
+Scanned only the target board, grouped related components inside `Lo - Home / Our Company`, renamed unclear existing component groups, and verified the affected sections only.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. Created `Industries_Intro_Group`, `CTA_Contact_Us_Button_Group`, and `CTA_View_Product_Lines_Button_Group`. Renamed four Strengths card groups plus `CTA_Content_Group` and `CTA_Actions_Group`. Existing grouped cards, labels, navigation, hero, product, global presence, and milestone groups were preserved.
+
+Error:
+Penpot MCP timed out during one broad write batch and two broad read-only verification probes. Targeted follow-up calls completed and verified the affected sections.
+
+Next step:
+Review `Lo - Home / Our Company` visually in Penpot.
+
+---
+
+## MCP Action 2026-05-20-1453
+Date:
+2026-05-20 14:53:04 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Available. One broad write call timed out after 30 seconds, but follow-up target-only verification confirmed the grouping changes landed.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - App / Automotive
+
+Action:
+Grouped related existing components inside `Lo - App / Automotive` only. No new boards were created, and no other section boards were targeted.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. The target board still contains the same eight section boards. Verified `Hero_Content_Group`, `Hero_Summary_Panel_Group`, `Sub_Navigation_Items_Group`, four Communicate card groups, Application Fit title/map/control groups, Application Row 01-08 groups, three Reliability card groups, `Flow_Container_Group`, and `CTA_Content_Group`. Final verification found 62 groups inside the target board.
+
+Error:
+Penpot MCP timed out during the first broad write batch. A follow-up verification showed the write had completed; two loose duplicate `Dimension Text` layers were then nested into `Application_Row_01_Series_0_Group` with a small targeted call.
+
+Next step:
+Review `Lo - App / Automotive` visually in Penpot.
+
+---
+
+## MCP Action 2026-05-20-1538
+Date:
+2026-05-20 15:38:44 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Available. Target-only scan, grouping, and verification completed without timeout.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Our Products / General / EMC / CAFB / A4K
+
+Action:
+Grouped related existing components inside `Lo - Our Products / General / EMC / CAFB / A4K` only. No new boards were created, and no other section boards were targeted.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. The target board still contains the same ten section boards. Final verification found 44 groups inside the target board, including page title, product image, dimension summary, compliance/status, download button, sub navigation, specification table row, environmental card, performance curve, physical dimension card, tape/reel card, soldering/washing card, and CTA groups.
+
+Error:
+None.
+
+Next step:
+Review `Lo - Our Products / General / EMC / CAFB / A4K` layers visually in Penpot.
+---
+
+## MCP Action 2026-05-20-1603
+Date:
+2026-05-20 16:03:39 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Available. Target-only scan, grouping, and verification completed without timeout.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Inquiry / cart
+
+Action:
+Grouped related existing components inside `Lo - Inquiry / cart` only. No new boards were created, and no other boards were targeted.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Completed and verified. The target board still contains the same five section boards. Verification found all expected groups: back button, cart table frame/header, three cart row product details groups, three quantity control groups, three remove button groups, contact details group, existing business/project info group with five nested field groups, overall remarks field group, consent group, and submit button group.
+
+Error:
+None.
+
+Next step:
+Review `Lo - Inquiry / cart` layers visually in Penpot.
+
+---
+
+## MCP Action 2026-05-20-1618
+Date:
+2026-05-20 16:18:58 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Partially available. Initial target-only scan and export completed, but the approved grouping call and follow-up verification calls timed out.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Action:
+Attempted to group related existing components inside `Lo - News / CSR` only after user approval. No other boards were targeted.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Result:
+Blocked. The write call timed out after 30 seconds, and target-only verification could not confirm whether any grouping landed.
+
+Error:
+Penpot MCP timeout during grouping and follow-up verification.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue in smaller batches such as Featured News only, Event Calendar only, Filter/Search only, Card Grid only, or Pagination only.
+
+---
+
+## MCP Action 2026-05-20-1623
+Date:
+2026-05-20 16:23:50 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Initially available for a shallow scan, then unresponsive after the retry write attempt.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Action:
+Retried component grouping inside `Lo - News / CSR` only, limited to a small Filter/Search + Pagination batch.
+
+Files read:
+Previously loaded grouping-only prompt and shared rules for this same target.
+
+Result:
+Blocked. The shallow target scan confirmed the same six section boards. The small grouping batch timed out after 30 seconds; follow-up verification and a no-op MCP probe also timed out.
+
+Error:
+Penpot MCP timeout during retry grouping and verification.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, then verify `Lo - News / CSR` before any further grouping attempt.
+
+---
+
+## MCP Action 2026-05-20-1636
+Date:
+2026-05-20 16:36:18 +08:00
+
+Stage:
+01 Wireframe
+
+Penpot MCP available:
+Intermittent. No-op probe and several small write calls succeeded, then MCP timed out during Event Calendar grouping and follow-up probes.
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Action:
+Retried component grouping inside `Lo - News / CSR` only, using selection-first grouping in smaller batches.
+
+Files read:
+Previously loaded grouping-only prompt and shared rules for this same target.
+
+Result:
+Partially completed and partially verified. Verified groups created: `Category_Filter_Dropdown_Group`, `Year_Filter_Dropdown_Group`, `Search_Field_Group`, `Pagination_Page_1_Group` through `Pagination_Page_5_Group`, `Featured_News_Category_Badge_Group`, `Featured_News_View_More_Button_Group`, `Featured_News_Slider_Dots_Group`, and `Featured_News_Card_Group`. Event Calendar row/button grouping was attempted but timed out and could not be verified.
+
+Error:
+Penpot MCP timeout during Event Calendar grouping and follow-up no-op probes.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only.

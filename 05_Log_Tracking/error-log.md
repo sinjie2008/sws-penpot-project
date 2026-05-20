@@ -38,7 +38,7 @@ Fix:
 Pending. Reconnect or refresh Penpot MCP, then verify both possible board names before retrying.
 
 Status:
-Open
+Resolved 2026-05-20 14:10:51 +08:00 by smaller section-batch verification.
 
 ---
 
@@ -150,6 +150,204 @@ Pending. Stop further Penpot writes until the plugin reconnects or responds, the
 
 Status:
 Open
+
+---
+
+## Error 2026-05-20-1636
+Date:
+2026-05-20 16:36:18 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Problem:
+Third retry made partial grouping progress, but Penpot MCP timed out during Event Calendar grouping and subsequent no-op probes.
+
+Expected:
+Penpot MCP should complete and verify each small section-batch grouping inside `Lo - News / CSR`.
+
+Actual:
+Filter/Search, Pagination, and Featured News grouping completed and were partly verified. Event Calendar grouping timed out and final state could not be verified.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout during grouping operations.
+
+Fix:
+Pending. Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, and continue from Event Calendar only.
+
+Status:
+Open
+
+---
+
+## Error 2026-05-20-1623
+Date:
+2026-05-20 16:23:50 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Problem:
+Retry for `Lo - News / CSR` component grouping timed out again. A shallow target-board scan succeeded first, but the small Filter/Search + Pagination grouping batch timed out. Follow-up verification and a trivial no-op MCP probe also timed out.
+
+Expected:
+Penpot MCP should complete a small section-batch grouping and return verification for only the affected target sections.
+
+Actual:
+Penpot MCP became unresponsive after the write attempt and did not return usable verification.
+
+Cause:
+Unknown; likely Penpot MCP/plugin session instability or timeout while applying grouping operations.
+
+Fix:
+Pending. Refresh or reconnect the existing Penpot MCP session before any further attempt. Verify `Lo - News / CSR` first, because the last write call may or may not have landed.
+
+Status:
+Open
+
+---
+
+## Error 2026-05-20-1618
+Date:
+2026-05-20 16:18:58 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Problem:
+Penpot MCP timed out during approved component grouping inside `Lo - News / CSR`. Follow-up read-only verification probes also timed out.
+
+Expected:
+Penpot MCP should group only the approved related components inside `Lo - News / CSR` and return verification state for the target board only.
+
+Actual:
+The grouping call did not return within 30 seconds, and two follow-up verification calls also did not return usable state.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing or traversing the target board.
+
+Fix:
+Pending. Refresh or reconnect Penpot MCP, then verify target board structure before retrying missing groups in smaller section batches.
+
+Status:
+Open
+
+---
+
+## Error 2026-05-20-1453
+Date:
+2026-05-20 14:53:04 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - App / Automotive
+
+Problem:
+Penpot MCP timed out during an approved component grouping write batch inside `Lo - App / Automotive`.
+
+Expected:
+Penpot MCP should create the approved groups and return the result within the tool timeout.
+
+Actual:
+The grouping call timed out after 30 seconds. Follow-up target-only verification confirmed most grouping changes had completed despite the timeout.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing many grouping operations in one call.
+
+Fix:
+Verified the target board only, then completed the remaining loose duplicate `Dimension Text` nesting with a smaller targeted call.
+
+Status:
+Fixed
+
+---
+
+## Error 2026-05-20-1434
+Date:
+2026-05-20 14:34:25 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Our Company
+
+Problem:
+Penpot MCP timed out during one broad component grouping call and two broad read-only verification probes inside `Lo - Home / Our Company`.
+
+Expected:
+Penpot MCP should complete grouping and verification within the tool timeout.
+
+Actual:
+The broad write call and two broad verification calls exceeded 30 seconds.
+
+Cause:
+Unknown; likely timeout risk from processing or scanning a larger target board.
+
+Fix:
+Resolved in the same run by avoiding broad board scans and completing the remaining work with smaller targeted section calls.
+
+Status:
+Resolved
+
+---
+
+## Error 2026-05-20-1421
+Date:
+2026-05-20 14:21:56 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Quality Standards
+
+Problem:
+Penpot MCP returned timeout errors during two component grouping/rename write batches.
+
+Expected:
+Penpot MCP should return successful write responses within the tool timeout.
+
+Actual:
+The write calls timed out after 30 seconds, but follow-up read-only verification confirmed the intended groups and names were created.
+
+Cause:
+Unknown; likely Penpot MCP/plugin latency while updating nested layer structure.
+
+Fix:
+Verified the actual target board state with smaller read-only checks and continued in smaller section batches.
+
+Status:
+Resolved
 
 Update:
 2026-05-13 16:00:57 +08:00 - User requested retry. Safe pre-rename board-name verification for `Global Presence / Wireframe / Desktop` and `Lo - News / Global Presence` timed out again after 120 seconds. Rename was not retried because the current board name could not be determined.
@@ -2858,6 +3056,38 @@ Unknown; likely Penpot MCP/plugin session timeout or unresponsive active file.
 
 Fix:
 Pending.
+
+Status:
+Open
+---
+
+## Error 2026-05-20-1352
+Date:
+2026-05-20 13:52:37 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Home / Key Achievements
+
+Problem:
+Penpot MCP timed out during approved component grouping inside `Lo - Home / Key Achievements`. Follow-up read-only verification probes also timed out.
+
+Expected:
+Penpot MCP should create the approved groups and return verification state for the target board only.
+
+Actual:
+The grouping call did not return within 30 seconds, and verification calls also did not return usable state.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing the target board.
+
+Fix:
+Pending. Refresh or reconnect Penpot MCP, then verify target board structure before retrying missing groups in smaller batches.
 
 Status:
 Open

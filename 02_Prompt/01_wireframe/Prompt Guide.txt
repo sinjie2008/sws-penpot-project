@@ -20,3 +20,36 @@ First scan the source image only.
 List all detected sections and readable text.
 Do not create anything yet.
 After listing, ask me which section to process first.
+
+
+
+
+C:\laragon\www\superworld-penpot-project\02_Prompt\01_wireframe\04_component_grouping_only\codex-goal-command.md
+
+Target section board:
+03_Latest_News_Board
+
+Instruction:
+Scan this section board only.
+Do not edit anything yet.
+
+List the related components that should be grouped, such as:
+- news card image + date + title + description + button
+- section title + section subtitle
+- button background + button text
+- related image and text blocks
+
+After listing, ask me for confirmation before grouping.
+
+Do not create new boards.
+Do not touch other section boards.
+Do not visually move anything.
+Do not resize anything.
+Do not change text content.
+Do not change color, font, spacing, or alignment.
+
+
+
+Proceed only with 03_Latest_News_Board.
+Group the related components listed.
+Do not touch other boards.

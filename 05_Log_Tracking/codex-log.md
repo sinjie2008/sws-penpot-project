@@ -6,6 +6,33 @@ Do not delete old entries. Add new entries at the top.
 
 ---
 
+## Codex Log 2026-05-20-1547
+Date:
+2026-05-20 15:47:57 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - Tools / Spec Search`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - Tools / Spec Search` only. Verified the same seven section boards remained and 29 target groups exist inside the target board, including the existing pagination group.
+
+Error, if any:
+None.
+
+Next step:
+Review `Lo - Tools / Spec Search` visually in Penpot.
+
+---
+
 ## Codex Action 2026-05-13-1039
 Date:
 2026-05-13 10:39:35 +08:00
@@ -2438,3 +2465,245 @@ None.
 
 Next step:
 Review the renamed board on  1 Wireframe.
+---
+
+## Codex Action 2026-05-20-1410
+Date:
+2026-05-20 14:10:51 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Retry component grouping only for `Lo - Home / Key Achievements`.
+
+Files read:
+`03_Penpot_Status/status.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - Home / Key Achievements` only.
+
+Error, if any:
+Intermittent Penpot MCP timeouts occurred, but follow-up verification succeeded.
+
+Next step:
+Review target board visually and confirm whether standalone headings or media placeholders should remain separate.
+
+---
+
+## Codex Action 2026-05-20-1352
+Date:
+2026-05-20 13:52:37 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - Home / Key Achievements`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Scanned target board and attempted approved grouping. Penpot MCP timed out during grouping and follow-up verification, so final Penpot state remains pending verification.
+
+Error, if any:
+Penpot MCP timeout.
+
+Next step:
+Refresh or reconnect Penpot MCP and verify `Lo - Home / Key Achievements` before retrying missing groups by smaller section batches.
+
+---
+
+## Codex Action 2026-05-20-1421
+Date:
+2026-05-20 14:21:56 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - Home / Quality Standards`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - Home / Quality Standards` only. Final verification found 37 expected groups and the same eight top-level section boards.
+
+Error, if any:
+Two Penpot MCP write calls timed out, but follow-up verification confirmed the writes completed.
+
+Next step:
+Review `Lo - Home / Quality Standards` visually in Penpot.
+
+---
+
+## Codex Action 2026-05-20-1434
+Date:
+2026-05-20 14:34:25 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - Home / Our Company`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - Home / Our Company` only. Created `Industries_Intro_Group`, `CTA_Contact_Us_Button_Group`, and `CTA_View_Product_Lines_Button_Group`; renamed generic Strengths and CTA groups semantically.
+
+Error, if any:
+One broad Penpot MCP write call and two broad verification calls timed out, but smaller targeted calls completed and verified the affected sections.
+
+Next step:
+Review `Lo - Home / Our Company` visually in Penpot.
+
+---
+
+## Codex Log 2026-05-20-1453
+Date:
+2026-05-20 14:53:04 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - App / Automotive`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - App / Automotive` only. Verified the same eight section boards remained and 62 groups exist inside the target board.
+
+Error, if any:
+One broad Penpot MCP write call timed out after 30 seconds, but target-only verification confirmed the grouping landed. A smaller targeted call nested the two remaining duplicate `Dimension Text` layers under `Application_Row_01_Series_0_Group`.
+
+Next step:
+Review `Lo - App / Automotive` visually in Penpot.
+
+---
+
+## Codex Log 2026-05-20-1538
+Date:
+2026-05-20 15:38:44 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - Our Products / General / EMC / CAFB / A4K`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Completed and verified related component grouping inside `Lo - Our Products / General / EMC / CAFB / A4K` only. Verified the same ten section boards remained and 44 groups exist inside the target board.
+
+Error, if any:
+None.
+
+Next step:
+Review `Lo - Our Products / General / EMC / CAFB / A4K` visually in Penpot.
+
+---
+
+## Codex Log 2026-05-20-1618
+Date:
+2026-05-20 16:18:58 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Component grouping only for `Lo - News / CSR`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`
+
+Result:
+Blocked. Initial scan and visual export completed for `Lo - News / CSR`, but the approved Penpot grouping call timed out and verification could not confirm final board state.
+
+Error, if any:
+Penpot MCP timed out during grouping and two follow-up read-only verification calls.
+
+Next step:
+Reconnect or refresh the existing Penpot MCP session, verify `Lo - News / CSR`, then continue with one smaller section batch.
+
+---
+
+## Codex Log 2026-05-20-1623
+Date:
+2026-05-20 16:23:50 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Retry component grouping only for `Lo - News / CSR`.
+
+Files read:
+Previously loaded grouping-only prompt and shared rules for this same target.
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Blocked. A shallow scan confirmed `Lo - News / CSR` still had the same six section boards, but the small Filter/Search + Pagination grouping retry timed out and could not be verified.
+
+Error, if any:
+Penpot MCP timed out during the retry write call, follow-up verification, and a trivial no-op probe.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue only after confirming whether the last write landed.
+
+---
+
+## Codex Log 2026-05-20-1636
+Date:
+2026-05-20 16:36:18 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Third retry component grouping only for `Lo - News / CSR`.
+
+Files read:
+Previously loaded grouping-only prompt and shared rules for this same target.
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Partially completed. Created and verified Filter/Search groups, Pagination page groups, Featured News subgroups, and `Featured_News_Card_Group`. Event Calendar grouping timed out and could not be verified.
+
+Error, if any:
+Penpot MCP timed out during Event Calendar grouping and follow-up no-op probes.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only.

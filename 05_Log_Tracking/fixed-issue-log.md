@@ -1925,3 +1925,72 @@ Yes.
 
 Notes:
 Final direct Penpot verification passed with 159/159 exact readable text occurrences, 0 missing/wrong/unexpected text items, no `UNCERTAIN:` text, no image fills, no non-grayscale fills/strokes, no shadows, 0 out-of-bounds target objects, and 0 protected-frame changes. Full-frame PNG export timeout remains logged separately.
+---
+
+## Fixed Issue 2026-05-20-1410
+Date:
+2026-05-20 14:10:51 +08:00
+
+Issue:
+Penpot MCP timed out during `Lo - Home / Key Achievements` component grouping and initial verification.
+
+Fix applied:
+Retried using smaller section batches and narrow read-only verification checks by group name.
+
+Target:
+`01 Wireframe` / `Lo - Home / Key Achievements`
+
+Result:
+Grouping was verified for Hero, Singapore Enterprise 50, Distinguished Awards, and Customer Awards related components.
+
+---
+
+## Fixed Issue 2026-05-20-1421
+Date:
+2026-05-20 14:21:56 +08:00
+
+Issue:
+Penpot MCP timed out during two `Lo - Home / Quality Standards` component grouping/rename write batches.
+
+Fix applied:
+Verified the actual target board state after each timeout, then continued using smaller section batches.
+
+Target:
+`01 Wireframe` / `Lo - Home / Quality Standards`
+
+Result:
+Final verification found all 37 expected groups and the same eight top-level section boards.
+---
+
+## Fixed Issue 2026-05-20-1434
+Date:
+2026-05-20 14:34:25 +08:00
+
+Issue:
+Penpot MCP timed out during broad grouping and verification calls for `Lo - Home / Our Company`.
+
+Fix applied:
+Stopped broad retries, verified direct target-board children only, then completed remaining grouping with smaller targeted calls for Industries intro and CTA button pairs.
+
+Target:
+`Lo - Home / Our Company` on `01 Wireframe`
+
+Result:
+Grouping completed and affected sections verified.
+---
+
+## Fixed Issue 2026-05-20-1453
+Date:
+2026-05-20 14:53:04 +08:00
+
+Issue:
+Penpot MCP timed out during the approved component grouping write batch for `Lo - App / Automotive`.
+
+Fix applied:
+Verified the target board only, confirmed the grouping changes landed, and completed the remaining loose duplicate `Dimension Text` nesting with a smaller targeted call.
+
+Target:
+`01 Wireframe` / `Lo - App / Automotive`
+
+Result:
+Fixed. The target board still contains the same eight section boards, and final verification found 62 groups inside `Lo - App / Automotive`.
