@@ -1,5 +1,17 @@
 # AGENTS.md
 
+## General working rules:
+- Process_narration=false
+- Apply changes directly to the target file.
+- Do not explain the process unless requested.
+- Do not repeat the user request.
+- Do not include unnecessary comments in code.
+- Keep responses short and result-focused.
+- If updating UI/design/code, preserve existing content unless the user requests changes.
+- After completion, only provide a short summary of what was changed.
+
+---
+
 ## Project purpose
 This project is used to manage Superworld Electronics website design work in Penpot through Penpot MCP, Codex, and final front-end handoff.
 

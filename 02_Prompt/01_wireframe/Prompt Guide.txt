@@ -1,0 +1,22 @@
+STEP 1:
+Paste full content from:
+
+02_Prompt/01_wireframe/01_image_to_editable_wireframe/codex-goal-command.md
+
+STEP 2:
+Add this below it:
+
+Source image:
+01_Input/raw-wireframe/Wireframe/HOME _ NEWS.png
+
+Target Penpot page:
+01 Wireframe
+
+Target frame name:
+Home / News / Wireframe / Desktop
+
+Instruction:
+First scan the source image only.
+List all detected sections and readable text.
+Do not create anything yet.
+After listing, ask me which section to process first.
