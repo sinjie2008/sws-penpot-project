@@ -4,22 +4,22 @@
 01 Wireframe
 
 ## Status
-Blocked - Lo - News / CSR partially grouped; Event Calendar unverified after timeout
+Lo - Header / Translate grouping timed out during verification
 
 ## Current Penpot page
 01 Wireframe
 
 ## Current target frame
-Lo - News / CSR
+Lo - Header / Translate
 
 Previous board name/source:
-Lo - News / CSR
+Lo - Header / Translate
 
 ## Latest action
-2026-05-20 16:36:18 +08:00 - Retried grouping inside `Lo - News / CSR` only using selection-first grouping. Verified groups created for Filter/Search, Pagination page items, Featured News badge/button/dots, and `Featured_News_Card_Group`. Event Calendar row/button grouping was attempted but Penpot MCP timed out and subsequent no-op probes timed out, so Event Calendar state is unverified.
+2026-05-22 09:36:21 +08:00 - Attempted approved grouping inside `Lo - Header / Translate` only. `Header_Dividers_Group` and `Top_Nav_Group` were visible in the interim scan after the first error. The follow-up smaller grouping write timed out, and target-only verification also timed out, so final state is pending verification.
 
 ## Next step
-Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only.
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - Header / Translate` only, then retry only any missing approved groups.
 
 ## Do not touch
 - 02 Components / Design System
@@ -35,7 +35,7 @@ Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, 
 - any unrelated wireframe frame
 
 ## Blocked items
-Penpot MCP timed out during `Lo - News / CSR` Event Calendar grouping and verification; Event Calendar state is unverified.
+`Lo - Header / Translate` final grouping verification is blocked by Penpot MCP timeout.
 
 ## Notes
 Update this file after every major Penpot MCP action.
@@ -59,6 +59,10 @@ Update this file after every major Penpot MCP action.
 - 2026-05-20 16:23:50 +08:00 - Retried grouping inside `Lo - News / CSR` using a smaller Filter/Search + Pagination batch. Penpot MCP timed out during the retry write call and became unresponsive to verification and a no-op probe. Refresh or reconnect before continuing.
 
 - 2026-05-20 16:36:18 +08:00 - Retried grouping inside `Lo - News / CSR` using selection-first grouping. Completed and verified Filter/Search groups, Pagination page groups, Featured News groups, and Featured News card wrapper. Event Calendar grouping timed out and could not be verified. Continue from Event Calendar only after MCP refresh/reconnect.
+
+- 2026-05-21 +08:00 - Scanned `Lo - News / CSR` only and confirmed existing groups. After user approval, attempted Event Calendar row/button grouping only. The write call timed out after 30 seconds and target-only verification also timed out. Continue from Event Calendar only after MCP refresh/reconnect, preferably one event row per batch.
+
+- 2026-05-21 08:54:54 +08:00 - Retried and verified Event Calendar grouping inside `Lo - News / CSR` only. Created and verified `Event_01_Group`, `Event_02_Group`, `Event_03_Group`, `Event_04_Group`, `Event_05_Group`, and `Event_Calendar_Full_Schedule_Button_Group`. Final verification confirmed `Lo - News / CSR` still has the same six top-level section boards.
 
 - 2026-05-13 16:14:09 +08:00 - Retried and completed rename from `Home / News / Wireframe / Desktop` to `Lo - News`; verification confirmed exactly one board with the new name, zero boards with the old name, same board id `426d5645-8eaa-80d5-8007-fb4b3f872bee`, position `12318, 23353`, size `1440 x 3520`, and child count `183`. No layout/content changes were made.
 

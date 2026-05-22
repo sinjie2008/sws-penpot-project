@@ -2707,3 +2707,126 @@ Penpot MCP timed out during Event Calendar grouping and follow-up no-op probes.
 
 Next step:
 Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only.
+---
+
+## Codex Log 2026-05-21-0000
+Date:
+2026-05-21 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Proceed with approved related component grouping only for `Lo - News / CSR`.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Blocked. Target-only scans confirmed the board and existing groups, then the approved Event Calendar grouping write call timed out and follow-up verification also timed out.
+
+Error, if any:
+Penpot MCP timed out during Event Calendar grouping and target-only verification.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only in smaller batches.
+---
+
+## Codex Log 2026-05-21-0854
+Date:
+2026-05-21 08:54:54 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Retry approved component grouping only for `Lo - News / CSR`.
+
+Files read:
+Previously loaded grouping-only prompt and shared rules for this same target.
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Completed and verified Event Calendar grouping inside `Lo - News / CSR` only. Created `Event_01_Group`, `Event_02_Group`, `Event_03_Group`, `Event_04_Group`, `Event_05_Group`, and `Event_Calendar_Full_Schedule_Button_Group`.
+
+Error, if any:
+Individual write calls for event rows 1 to 5 timed out after 30 seconds, but each was confirmed by follow-up target-only verification.
+
+Next step:
+Continue only with a user-confirmed small batch if more grouping is needed.
+---
+
+## Codex Log 2026-05-22-0000
+Date:
+2026-05-22 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Proceed only with `Lo - Header`; group listed related components; do not touch other boards.
+
+Files read:
+`02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Pending verification. The approved `Lo - Header` grouping write call timed out after 30 seconds, and follow-up target-only verification also timed out.
+
+Error, if any:
+Penpot MCP timed out during `Lo - Header` grouping and target-only verification.
+
+Next step:
+Refresh or reconnect the existing Penpot MCP session, verify `Lo - Header`, then only retry any missing group if verification shows it was not created.
+---
+
+## Codex Log 2026-05-22-0001
+Date:
+2026-05-22 +08:00
+
+Stage:
+01 Wireframe
+
+Command used:
+Retry `Lo - Header` grouping.
+
+Files read:
+Previously loaded grouping-only prompt and project rules for this same target.
+
+Files changed:
+`05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/fixed-issue-log.md`, `05_Log_Tracking/codex-log.md`, `03_Penpot_Status/status.md`
+
+Result:
+Verified the previous `Lo - Header` grouping landed successfully. No additional grouping write was needed.
+
+Error, if any:
+No new error. Previous timeout is now resolved by verification.
+
+Next step:
+Continue only with a user-confirmed small batch if more grouping is needed.
+## 2026-05-22 09:29:44 +08:00
+
+- Stage: Wireframe / component grouping
+- Command used: Proceed only with `Lo - Header / Support`; group listed related components; do not touch other boards.
+- Files read: `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+- Files changed: `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/codex-log.md`
+- Result: Penpot target board grouped as approved; no other boards touched.
+- Error: None.
+- Next step: Await user confirmation for any further grouping work.
+
+## 2026-05-22 09:36:21 +08:00
+
+- Stage: Wireframe / component grouping
+- Command used: Proceed only with `Lo - Header / Translate`; group listed related components; do not touch other boards.
+- Files read: `00_Rules/AGENTS.md`, `00_Rules/design-rules.md`, `03_Penpot_Status/status.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-safety-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/mcp-timeout-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/naming-rules.md`, `02_Prompt/01_wireframe/00_shared_rules/logging-rules.md`, `02_Prompt/01_wireframe/04_component_grouping_only/codex-goal-command.md`, `02_Prompt/01_wireframe/04_component_grouping_only/prd.md`
+- Files changed: `03_Penpot_Status/status.md`, `05_Log_Tracking/mcp-log.md`, `05_Log_Tracking/error-log.md`, `05_Log_Tracking/codex-log.md`
+- Result: Penpot grouping final state is pending verification. Interim target scan showed `Header_Dividers_Group` and `Top_Nav_Group`; follow-up grouping and verification timed out.
+- Error: Penpot MCP timeout during write and target-only verification.
+- Next step: Refresh or reconnect the existing Penpot MCP session, verify `Lo - Header / Translate` only, then retry only missing approved groups if needed.

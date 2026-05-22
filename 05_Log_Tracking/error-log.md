@@ -153,6 +153,44 @@ Open
 
 ---
 
+## Error 2026-05-22-0001
+Date:
+2026-05-22 09:36:21 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Header / Translate
+
+Problem:
+Penpot MCP timed out during approved component grouping inside `Lo - Header / Translate`. A target-only verification call also timed out.
+
+Expected:
+Penpot MCP should finish grouping `Main_Nav_Group` and `Language_Menu_Group`, preserve `Header_Dividers_Group` and `Top_Nav_Group`, and return target-only verification state.
+
+Actual:
+The first write partially applied `Header_Dividers_Group` and `Top_Nav_Group` before an error caused by duplicate generic `Path` layer names. The follow-up ID-based smaller grouping write timed out after 30 seconds, and target-only verification also timed out.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing the target board.
+
+Fix:
+Pending. Refresh or reconnect the existing Penpot MCP session, verify `Lo - Header / Translate` only, then retry only missing approved groups.
+
+Status:
+Open
+Resolved:
+2026-05-22 +08:00 - Follow-up verification confirmed the previous write landed successfully. `Header_Dividers_Group`, `Top_Nav_Group`, and `Main_Nav_Group` exist inside `Lo - Header`.
+
+Status:
+Fixed
+
+---
+
 ## Error 2026-05-20-1636
 Date:
 2026-05-20 16:36:18 +08:00
@@ -3088,6 +3126,70 @@ Unknown; likely Penpot MCP/plugin timeout while processing the target board.
 
 Fix:
 Pending. Refresh or reconnect Penpot MCP, then verify target board structure before retrying missing groups in smaller batches.
+
+Status:
+Open
+---
+
+## Error 2026-05-21-0000
+Date:
+2026-05-21 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - News / CSR
+
+Problem:
+Penpot MCP timed out during approved Event Calendar component grouping inside `Lo - News / CSR`. A follow-up target-only verification probe also timed out.
+
+Expected:
+Penpot MCP should create the approved Event Calendar row and button groups and return verification state for the target board only.
+
+Actual:
+The grouping call did not return within 30 seconds, and verification did not return usable state.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing the target board.
+
+Fix:
+Pending. Refresh or reconnect the existing Penpot MCP session, verify `Lo - News / CSR`, then continue from Event Calendar only in smaller batches.
+
+Status:
+Open
+---
+
+## Error 2026-05-22-0000
+Date:
+2026-05-22 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Header
+
+Problem:
+Penpot MCP timed out during approved component grouping inside `Lo - Header`. A follow-up target-only verification probe also timed out.
+
+Expected:
+Penpot MCP should create `Top_Nav_Group`, `Main_Nav_Group`, and `Header_Dividers_Group` inside `Lo - Header` and return verification state.
+
+Actual:
+The grouping call did not return within 30 seconds, and verification did not return usable state.
+
+Cause:
+Unknown; likely Penpot MCP/plugin timeout while processing the target board.
+
+Fix:
+Pending. Refresh or reconnect the existing Penpot MCP session, verify `Lo - Header`, then only retry any missing group if verification shows it was not created.
 
 Status:
 Open

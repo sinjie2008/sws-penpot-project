@@ -1994,3 +1994,43 @@ Target:
 
 Result:
 Fixed. The target board still contains the same eight section boards, and final verification found 62 groups inside `Lo - App / Automotive`.
+---
+
+## Fixed Issue 2026-05-21-0854
+Date:
+2026-05-21 08:54:54 +08:00
+
+Issue:
+Event Calendar grouping inside `Lo - News / CSR` was previously unverified after Penpot MCP timeouts.
+
+Fix applied:
+Retried the grouping in smaller batches, one Event Calendar group at a time, and verified the target board after each slow write.
+
+Target:
+`Lo - News / CSR` / `02_Featured_News_Event_Calendar_Board`
+
+Result:
+Verified `Event_01_Group`, `Event_02_Group`, `Event_03_Group`, `Event_04_Group`, `Event_05_Group`, and `Event_Calendar_Full_Schedule_Button_Group`.
+---
+
+## Fixed Issue 2026-05-22-0000
+Date:
+2026-05-22 +08:00
+
+Stage:
+01 Wireframe
+
+Target Penpot page:
+01 Wireframe
+
+Target frame:
+Lo - Header
+
+Issue:
+Penpot MCP timed out during approved `Lo - Header` grouping and target-only verification, leaving the grouping result pending.
+
+Fix:
+Retried target-only verification after reconnect/refresh. Verification confirmed the previous write landed successfully: `Header_Dividers_Group`, `Top_Nav_Group`, and `Main_Nav_Group` exist inside `Lo - Header`.
+
+Status:
+Fixed
